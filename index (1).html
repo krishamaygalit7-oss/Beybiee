@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Beybie MJ 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@500;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #f58baa;
+      --deep-pink: #ed6f9d;
+      --light-pink: #ffeaf2;
+      --soft-pink: #fff4f8;
+      --white: #fffafa;
+      --red: #d94f7a;
+      --shadow: 0 18px 50px rgba(204, 91, 131, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Nunito", sans-serif;
+      color: #8d4059;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.95) 0 3%, transparent 3.2%),
+        linear-gradient(135deg, #fffafb 0%, #ffe9f1 48%, #fff8fb 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "🌸";
+      position: fixed;
+      z-index: 0;
+      font-size: clamp(4rem, 12vw, 8rem);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    body::before {
+      left: -1.5rem;
+      bottom: 2rem;
+      transform: rotate(-25deg);
+    }
+
+    body::after {
+      right: -1.2rem;
+      top: 1rem;
+      transform: rotate(25deg);
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .page.active {
+      display: flex;
+      animation: pageIn 0.7s ease forwards;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .greeting-card,
+    .ending-card {
+      width: min(580px, 92vw);
+      padding: clamp(38px, 8vw, 70px) clamp(22px, 6vw, 50px);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      border-radius: 38px;
+      background: rgba(255, 250, 252, 0.84);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .greeting-card h1 {
+      font-family: "Pacifico", cursive;
+      color: var(--deep-pink);
+      font-size: clamp(2.6rem, 9vw, 4.8rem);
+      line-height: 1.15;
+      text-shadow: 2px 3px 0 #fff;
+    }
+
+    .greeting-card p {
+      margin: 18px 0 30px;
+      color: #ad5c77;
+      font-size: clamp(1.05rem, 4vw, 1.35rem);
+    }
+
+    .letter-wrapper {
+      position: relative;
+      width: min(650px, 94vw);
+    }
+
+    .letter {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      padding: clamp(48px, 8vw, 72px) clamp(28px, 8vw, 70px);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(238, 145, 174, 0.035) 0,
+          rgba(238, 145, 174, 0.035) 1px,
+          transparent 1px,
+          transparent 31px
+        ),
+        rgba(255, 255, 252, 0.95);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .letter::before,
+    .letter::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 70%;
+      height: 30px;
+      transform: translateX(-50%) rotate(-1deg);
+      background: rgba(251, 174, 199, 0.45);
+      border-radius: 4px;
+    }
+
+    .letter::before {
+      top: -13px;
+    }
+
+    .letter::after {
+      bottom: -13px;
+      transform: translateX(-50%) rotate(1deg);
+    }
+
+    .letter h2 {
+      margin-bottom: 20px;
+      font-family: "Great Vibes", cursive;
+      color: var(--deep-pink);
+      font-size: clamp(2.8rem, 9vw, 4.3rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .letter-message {
+      color: #94536a;
+      font-size: clamp(1rem, 3.5vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .letter-message p + p {
+      margin-top: 16px;
+    }
+
+    .question {
+      margin: 26px 0 24px;
+      text-align: center;
+      color: #d94f7a;
+      font-size: clamp(1.55rem, 6vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .answer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+    }
+
+    .primary-button,
+    .answer-button,
+    .kiss-button {
+      min-height: 52px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, #f58baa, #ea709c);
+      box-shadow: 0 10px 24px rgba(215, 91, 137, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .primary-button {
+      font-size: 1.05rem;
+    }
+
+    .answer-button {
+      min-width: 150px;
+      font-size: 1.05rem;
+    }
+
+    .primary-button:hover,
+    .answer-button:hover,
+    .kiss-button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 14px 28px rgba(215, 91, 137, 0.32);
+    }
+
+    .primary-button:active,
+    .answer-button:active,
+    .kiss-button:active {
+      transform: translateY(0) scale(0.96);
+    }
+
+    .ending-card h1 {
+      color: var(--deep-pink);
+      font-family: "Pacifico", cursive;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      line-height: 1.25;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .ending-card p {
+      margin: 18px 0 28px;
+      color: #a85c74;
+      font-size: clamp(1.05rem, 4vw, 1.25rem);
+    }
+
+    .kiss-button {
+      font-size: 1.05rem;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.06); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.04); }
+    }
+
+    .floating-heart {
+      position: fixed;
+      z-index: 1;
+      bottom: -60px;
+      font-size: var(--size);
+      opacity: 0;
+      pointer-events: none;
+      animation: floatUp var(--duration) linear var(--delay) forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.75;
+      }
+      50% {
+        transform: translate3d(var(--drift), -50vh, 0) rotate(18deg) scale(1);
+      }
+      100% {
+        transform: translate3d(calc(var(--drift) * -0.35), -110vh, 0) rotate(-12deg) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    .sparkle {
+      position: fixed;
+      z-index: 5;
+      pointer-events: none;
+      font-size: 24px;
+      animation: pop 1s ease-out forwards;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x), var(--y)) scale(1.5) rotate(180deg);
+        opacity: 0;
+      }
+    }
+
+    .kiss-burst {
+      position: fixed;
+      z-index: 10;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(5rem, 22vw, 9rem);
+      pointer-events: none;
+      animation: kissPop 1.2s ease-out forwards;
+    }
+
+    @keyframes kissPop {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      30% { transform: translate(-50%, -50%) scale(1.15) rotate(-8deg); opacity: 1; }
+      100% { transform: translate(-50%, -70%) scale(1.5) rotate(8deg); opacity: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 16px;
+      }
+
+      .letter {
+        min-height: 0;
+        border-radius: 18px;
+      }
+
+      .answer-buttons {
+        flex-direction: column;
+      }
+
+      .answer-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-heart,
+      .sparkle,
+      .kiss-burst,
+      .ending-card h1 {
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Greeting Page -->
+  <main id="greetingPage" class="page active">
+    <section class="greeting-card">
+      <h1>Hi, Beybie MJ! 💗</h1>
+      <p>I have a little question for you…</p>
+      <button class="primary-button" id="openLetter">Open My Letter 💌</button>
+    </section>
+  </main>
+
+  <!-- Love Letter Page -->
+  <main id="letterPage" class="page">
+    <div class="letter-wrapper">
+      <article class="letter">
+        <h2>Hi, Beybie MJ!</h2>
+
+        <div class="letter-message">
+          <p>There’s something I want to ask you, and I hope you know how special you are to me.</p>
+          <p>But before anything else, I have one important question…</p>
+        </div>
+
+        <h3 class="question">MAHAL MO BA AKO? 🥺💗</h3>
+
+        <div class="answer-buttons">
+          <button class="answer-button" data-answer="yes">OO 💗</button>
+          <button class="answer-button" data-answer="yes">OO NAMAN! 💗</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Ending Page -->
+  <main id="endingPage" class="page">
+    <section class="ending-card">
+      <h1>YIEEE! ALAM KO NAMAN! 😚💗</h1>
+      <p>Thank you for making me happy, Beybie MJ!</p>
+      <button class="kiss-button" id="kissButton">Click for a Kiss 💋</button>
+    </section>
+  </main>
+
+  <script>
+    const greetingPage = document.getElementById("greetingPage");
+    const letterPage = document.getElementById("letterPage");
+    const endingPage = document.getElementById("endingPage");
+    const openLetterButton = document.getElementById("openLetter");
+    const answerButtons = document.querySelectorAll(".answer-button");
+    const kissButton = document.getElementById("kissButton");
+
+    function showPage(pageToShow) {
+      document.querySelectorAll(".page").forEach((page) => {
+        page.classList.remove("active");
+      });
+      pageToShow.classList.add("active");
+    }
+
+    openLetterButton.addEventListener("click", () => {
+      showPage(letterPage);
+      burstFrom(openLetterButton);
+    });
+
+    answerButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        showPage(endingPage);
+        burstFrom(button);
+        startHeartRain(18);
+      });
+    });
+
+    kissButton.addEventListener("click", (event) => {
+      const kiss = document.createElement("div");
+      kiss.className = "kiss-burst";
+      kiss.textContent = "💋";
+      document.body.appendChild(kiss);
+
+      burstFrom(event.currentTarget);
+      startHeartRain(10);
+
+      setTimeout(() => kiss.remove(), 1200);
+    });
+
+    function createFloatingHeart(extraClass = "") {
+      const heart = document.createElement("div");
+      heart.className = `floating-heart ${extraClass}`;
+      heart.textContent = ["💗", "💕", "💖", "🌸", "♥"][Math.floor(Math.random() * 5)];
+
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.setProperty("--size", `${18 + Math.random() * 26}px`);
+      heart.style.setProperty("--duration", `${7 + Math.random() * 7}s`);
+      heart.style.setProperty("--delay", `${Math.random() * 2}s`);
+      heart.style.setProperty("--drift", `${-130 + Math.random() * 260}px`);
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 16000);
+    }
+
+    function startHeartRain(amount = 5) {
+      for (let i = 0; i < amount; i++) {
+        setTimeout(() => createFloatingHeart(), i * 120);
+      }
+    }
+
+    function burstFrom(element) {
+      const rect = element.getBoundingRect ? element.getBoundingRect() : element.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 14; i++) {
+        const sparkle = document.createElement("div");
+        const angle = (Math.PI * 2 * i) / 14;
+        const distance = 55 + Math.random() * 75;
+
+        sparkle.className = "sparkle";
+        sparkle.textContent = ["💗", "✨", "💕"][i % 3];
+        sparkle.style.left = `${centerX}px`;
+        sparkle.style.top = `${centerY}px`;
+        sparkle.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+        sparkle.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+      }
+    }
+
+    setInterval(() => createFloatingHeart(), 1100);
+    startHeartRain(12);
+  </script>
+</body>
+</html>
